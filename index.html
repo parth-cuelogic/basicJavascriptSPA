@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+
+</head>
+</head>
+
+<body>
+    <div class="main-content">
+        <div class="login page">
+            <div include-html="components/login.html"></div>
+        </div>
+        <div class="register page">
+            <div include-html="components/register.html"></div>
+        </div>
+        <div class="home page">
+            <div include-html="components/navbar.html"></div>
+            <div include-html="components/home.html"></div>
+        </div>
+        <div class="profile page">
+            <div include-html="components/navbar.html"></div>
+            <div include-html="components/profile.html"></div>
+        </div>
+
+        <div class="modal fade" id="add-new-student-modal" tabindex="-1" role="dialog" aria-labelledby="add-new-student-modal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="add-new-student-modal">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Select student to add</label>
+                            <select type="select" class="form-control" id="list-of-student" onchange="addStudent()">
+                                <option value='' >select</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- //last div -->
+    </div>
+
+    </div>
+    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/module/changedetection.module.js"></script>
+    <script src="assets/js/module/user.module.js"></script>
+    <script src="assets/js/module/authentication.module.js"></script>
+    <script src="assets/js/module/defaultdata.module.js"></script>
+    <script src="assets/js/module/login.module.js"></script>
+    <script src="assets/js/module/register.module.js"></script>
+    <script src="assets/js/module/home.module.js"></script>
+    <script src="assets/js/module/profile.module.js"></script>
+</body>
+
+</html>

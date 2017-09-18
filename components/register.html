@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row row-margin-top">
+                <div class="col-sm-6 marginAuto form-border">
+                    <div class="row text-center text-white bg-danger">
+                        <div class="col">
+                            <div class="p-3 mb-2 bg-danger text-white header-reg-form">Registration Form</div>
+                        </div>
+                    </div>
+                    <form name="registration" id="registration" class="p-3 mb-2" onSubmit="registerFormSubmit(event)">
+                        <fieldset>
+                            <div class="form-group">
+                                <label for="username">User Name:</label>
+                                <input type="text" class="form-control" id='r_username' name="r_username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address:</label>
+                                <input type="email" class="form-control" id="r_email" name="r_email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" class="form-control" id="r_password" name="r_password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Confirm Password:</label>
+                                <input type="password" class="form-control" id="c_password" name="c_password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Role</label>
+                                <select class="form-control" required id="r_role" name="r_role">
+                                            <option value=''>select</option>
+                                            <option value="student">Student</option>
+                                            <option value="teacher">Teacher</option>
+                                    </select>
+                            </div>
+
+                        </fieldset>
+                        <button type="submit" value="Submit" class="btn btn-info">Submit</button>
+                        <a class="btn btn-info" href="#login">back</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

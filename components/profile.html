@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+    <div class="panel-body row-margin-top">
+        <div class="col-sm-6 col-md-offset-2">
+            <div>
+                <h2>Profile</h2>
+            </div>
+            <form ng-form="registration" onsubmit="updateProfile(event)">
+                <div class="form-group">
+                    <label for="email">User Name:</label>
+                    <input type="text" class="form-control" change-detect="user.username" id="p_username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" class="form-control" change-detect="user.email" id="p_email" required>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Role</label>
+                    <select class="form-control" required change-detect="user.role" id="p_role">
+                            <option value=''>select</option>
+                            <option value="student">Student</option>
+                            <option value="teacher">Teacher</option>
+                        </select>
+                </div>
+                <button type="submit" class="btn btn-success"><i class="fa fa-flopy-o"></i> Update</button>
+                <a class="btn btn-info" href="#home">back</a>
+            </form>
+        </div>
+    </div>
+</div>
