@@ -7,8 +7,10 @@ var AuthenticationService = (function (ChangeDetection, UserModule) {
 
     var setUser = function (user) {
         User = user;
-        ChangeDetection.applyChange(user);
+        
         UserModule.getAssignedUsers(user.assigned || [], user.role);
+        ChangeDetection.applyChange(user);
+
     }
 
     var checkAuthentication = function () {

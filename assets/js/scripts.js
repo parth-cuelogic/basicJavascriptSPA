@@ -3,12 +3,20 @@
 var switchpages = function (url) {
     switch (url) {
         case "#register":
+            if (document.getElementById('registration')) {
+                document.getElementById('registration').reset();
+            }
             return url;
         case "#profile":
+            ChangeDetection.applyChange(AuthenticationService.getUser());
             return url;
         case "#home":
+            ChangeDetection.applyChange(AuthenticationService.getUser());
             return url;
         default:
+            if (document.getElementById('loginForm')) {
+                document.getElementById('loginForm').reset();
+            }
             return "#login";
     }
 }
@@ -46,7 +54,6 @@ var loginFormSubmit = function (e) {
         username: document.getElementById('l_username').value,
         password: document.getElementById('l_password').value
     }
-
     LoginModule.login(credentials);
 }
 
@@ -55,12 +62,31 @@ var registerFormSubmit = function (e) {
     let user = {
         username: document.getElementById('r_username').value,
         password: document.getElementById('r_password').value,
+        c_password: document.getElementById('c_password').value,
         email: document.getElementById('r_email').value,
         role: document.getElementById('r_role').value
+    }
+    if (user.password != user.c_password) {
+        document.getElementById('c_password').style.borderColor = "red";
     }
     RegisterModule.register(user);
 }
 
+var passwordHandler = function (id) {
+    let c_password = document.getElementById('c_password').value;
+    let password = document.getElementById('r_password').value;
+    if (!c_password || !password) return;
+    if (c_password != password) {
+        document.getElementById('c_password').style.borderColor = 'pink';
+        document.getElementById('c_password').style.borderWidth = '2px';
+        document.getElementById("registerBtn").disabled = true;
+        document.getElementById("registerBtn").title = 'form is invalid';
+    } else {
+        document.getElementById('c_password').style.borderColor = '';
+        document.getElementById('c_password').style.borderWidth = '';
+        document.getElementById("registerBtn").disabled = false;
+    }
+}
 
 var deleteAssignedStudent = function (studentId) {
     HomeModule.deleteAssignedStudent(studentId);
