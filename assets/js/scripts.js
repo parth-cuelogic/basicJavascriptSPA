@@ -79,11 +79,13 @@ var passwordHandler = function (id) {
     if (c_password != password) {
         document.getElementById('c_password').style.borderColor = 'pink';
         document.getElementById('c_password').style.borderWidth = '2px';
+        document.getElementById('c_password').title = 'password should match';
         document.getElementById("registerBtn").disabled = true;
         document.getElementById("registerBtn").title = 'form is invalid';
     } else {
         document.getElementById('c_password').style.borderColor = '';
         document.getElementById('c_password').style.borderWidth = '';
+        document.getElementById('c_password').title = '';
         document.getElementById("registerBtn").disabled = false;
     }
 }
