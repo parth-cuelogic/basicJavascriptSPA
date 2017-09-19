@@ -56,7 +56,7 @@ var ChangeDetection = (function () {
         let displayUsers = document.getElementById('displayUsers');
         if (displayUsers) {
             if (assignedUsers.length == 0) {
-                assignedUserHtml = '<p>no records found for <span change-detect="user.username"></span></p>'
+                assignedUserHtml = '<p style="margin:0">no records found for <span change-detect="user.username"></span></p>'
                 displayUsers.classList.add('text-center');
             } else {
                 displayUsers.classList.remove('text-center')

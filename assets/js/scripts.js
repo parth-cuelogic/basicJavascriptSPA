@@ -5,6 +5,13 @@ var switchpages = function (url) {
         case "#register":
             if (document.getElementById('registration')) {
                 document.getElementById('registration').reset();
+                document.getElementById('c_password').style.borderColor = '';
+                document.getElementById('c_password').style.borderWidth = '';
+                document.getElementById('c_password').title = '';
+                document.getElementById("registerBtn").disabled = false;
+                document.getElementById('invalid-c_password').innerHTML = '';
+                document.getElementById('register-fail').innerHTML = '';
+                document.getElementById('register-fail').style.marginTop = ''
             }
             return url;
         case "#profile":
@@ -16,6 +23,9 @@ var switchpages = function (url) {
         default:
             if (document.getElementById('loginForm')) {
                 document.getElementById('loginForm').reset();
+                let loginErrorElement = document.getElementById('login-invalid');
+                loginErrorElement.innerHTML = '';
+                loginErrorElement.style.marginTop = '';
             }
             return "#login";
     }
@@ -66,11 +76,17 @@ var registerFormSubmit = function (e) {
         email: document.getElementById('r_email').value,
         role: document.getElementById('r_role').value
     }
-    if (user.password != user.c_password) {
-        document.getElementById('c_password').style.borderColor = "red";
+
+    let isRegistered = RegisterModule.register(user);
+    let registrationFailElement = document.getElementById('register-fail');
+    if (!isRegistered) {
+        registrationFailElement.innerHTML = '<span>This username already exist.</span>'
+        registrationFailElement.style.marginTop = '10px';
+    } else {
+        document.getElementById('register-fail').innerHTML = '';
     }
-    RegisterModule.register(user);
 }
+
 
 var passwordHandler = function (id) {
     let c_password = document.getElementById('c_password').value;
@@ -82,11 +98,13 @@ var passwordHandler = function (id) {
         document.getElementById('c_password').title = 'password should match';
         document.getElementById("registerBtn").disabled = true;
         document.getElementById("registerBtn").title = 'form is invalid';
+        document.getElementById('invalid-c_password').innerHTML = '<span style="color: red">!Password does not match the confirm password</span>'
     } else {
         document.getElementById('c_password').style.borderColor = '';
         document.getElementById('c_password').style.borderWidth = '';
         document.getElementById('c_password').title = '';
         document.getElementById("registerBtn").disabled = false;
+        document.getElementById('invalid-c_password').innerHTML = '';
     }
 }
 

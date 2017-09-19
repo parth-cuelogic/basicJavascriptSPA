@@ -75,9 +75,19 @@ var UserModule = (function (ChangeDetection) {
     }
 
     var register = function (user) {
+        // if (!user) return false;
+        // Users.push(user);
+        // return true;
         if (!user) return false;
-        Users.push(user);
-        return true;
+        let sameUser = Users.findIndex((item) => {
+            if (item.username == user.username) return item;
+        })
+        if (sameUser < 0) {
+            Users.push(user);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     var UserMethods = {
