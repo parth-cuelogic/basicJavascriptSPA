@@ -83,6 +83,15 @@ var UserModule = (function (ChangeDetection) {
             if (item.username == user.username) return item;
         })
         if (sameUser < 0) {
+            if (user.id == undefined) {
+                let max = 0;
+                Users.forEach((item) => {
+                    if (item.id > max) {
+                        max = item.id;
+                    }
+                    user.id = max + 1;
+                })
+            }
             Users.push(user);
             return true;
         } else {

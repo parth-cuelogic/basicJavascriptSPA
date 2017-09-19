@@ -55,7 +55,7 @@ var render = function (urlString) {
 }
 
 var OnInputChange = function (event) {
-    console.log(event);
+    // console.log(event);
 }
 
 var loginFormSubmit = function (e) {

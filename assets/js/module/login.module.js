@@ -8,7 +8,7 @@ var LoginModule = (function (UserModule, AuthenticationService) {
             let loginErrorElement = document.getElementById('login-invalid');
             loginErrorElement.innerHTML = '<span>Invalid Credentials</span>';
             loginErrorElement.style.marginTop = '10px';
-            window.location.hash = '#'
+            window.location.hash = '#login'
             return;
          }
 
