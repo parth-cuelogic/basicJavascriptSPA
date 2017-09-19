@@ -7,6 +7,7 @@ var HomeModule = (function (UserModule, AuthenticationService) {
 
     var addStudent = function (studentId) {
         let loggedInUser = AuthenticationService.getUser();
+        if (!loggedInUser.assigned) loggedInUser.assigned = [];
         loggedInUser.assigned.push(studentId);
         UserModule.updateUser(loggedInUser);
         AuthenticationService.setUser(loggedInUser);

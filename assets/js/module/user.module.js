@@ -30,7 +30,7 @@ var UserModule = (function (ChangeDetection) {
         ChangeDetection.displayUsersGrid(assignedUsers, defaultRole);
 
         let unassignedUsers = Users.filter((item) => {
-            if (!assigned.includes(item.id) && item.role === 'student') return item;
+            if (!assigned || !assigned.includes(item.id) && item.role === 'student') return item;
         })
 
         let selectDropdown = '<option value="">Select </option>';

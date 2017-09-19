@@ -8,7 +8,7 @@ var AuthenticationService = (function (ChangeDetection, UserModule) {
     var setUser = function (user) {
         User = user;
         ChangeDetection.applyChange(user);
-        UserModule.getAssignedUsers(user.assigned, user.role);
+        UserModule.getAssignedUsers(user.assigned || [], user.role);
     }
 
     var checkAuthentication = function () {
@@ -25,5 +25,5 @@ var AuthenticationService = (function (ChangeDetection, UserModule) {
 
 })(ChangeDetection, UserModule);
 
-//AuthenticationService.checkAuthentication();
-window.location.hash = '#';
+AuthenticationService.checkAuthentication();
+//window.location.hash = '#';
