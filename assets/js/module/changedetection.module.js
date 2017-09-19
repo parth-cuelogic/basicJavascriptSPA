@@ -23,6 +23,7 @@ var ChangeDetection = (function () {
         <th>Id</th>
         <th>UserName</th>
         <th>Email</th>
+        <th>Role</th>
         `;
         if (role == "teacher") {
             assignedUserHtml += `
@@ -39,6 +40,7 @@ var ChangeDetection = (function () {
             <td>${assignedUsers[i].id}</td>
             <td>${assignedUsers[i].username}</td>
             <td>${assignedUsers[i].email}</td>
+            <td>${assignedUsers[i].role.toUpperCase()}</td>
             `;
             if (role == "teacher") {
                 assignedUserHtml += `
