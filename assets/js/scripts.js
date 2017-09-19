@@ -1,17 +1,23 @@
 
 //global variables
 var switchpages = function (url) {
+    let dom_c_password = document.getElementById('c_password');
+    let dom_registration = document.getElementById('registration');
+    let dom_register_fail = document.getElementById('register-fail');
+    let dom_login_form = document.getElementById('loginForm');
+    let dom_loginErrorElement = document.getElementById('login-invalid');
+
     switch (url) {
         case "#register":
-            if (document.getElementById('registration')) {
-                document.getElementById('registration').reset();
-                document.getElementById('c_password').style.borderColor = '';
-                document.getElementById('c_password').style.borderWidth = '';
-                document.getElementById('c_password').title = '';
+            if (dom_registration) {
+                dom_registration.reset();
+                dom_c_password.style.borderColor = '';
+                dom_c_password.style.borderWidth = '';
+                dom_c_password.title = '';
                 document.getElementById("registerBtn").disabled = false;
                 document.getElementById('invalid-c_password').innerHTML = '';
-                document.getElementById('register-fail').innerHTML = '';
-                document.getElementById('register-fail').style.marginTop = ''
+                dom_register_fail.innerHTML = '';
+                dom_register_fail.style.marginTop = ''
             }
             return url;
         case "#profile":
@@ -21,11 +27,10 @@ var switchpages = function (url) {
             ChangeDetection.applyChange(AuthenticationService.getUser());
             return url;
         default:
-            if (document.getElementById('loginForm')) {
-                document.getElementById('loginForm').reset();
-                let loginErrorElement = document.getElementById('login-invalid');
-                loginErrorElement.innerHTML = '';
-                loginErrorElement.style.marginTop = '';
+            if (dom_login_form) {
+                dom_login_form.reset();
+                dom_loginErrorElement.innerHTML = '';
+                dom_loginErrorElement.style.marginTop = '';
             }
             return "#login";
     }
